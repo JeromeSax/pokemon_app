@@ -5,6 +5,12 @@ const myStyle = {
     minHeight: '100vh',
     };
 
+const linkStyle = {
+    color: '#ffffff',
+    fontSize: '30px',
+    margin: '10px'
+    };
+
 const pokename = (name) =>  {
 return name[0].toUpperCase() + name.substring(1);
 }
@@ -19,7 +25,7 @@ function Index({ pokemon }) {
             {pokemon.map((poke, i) => {
                 return (
                     <li key={i}>
-                       <a href={`/pokemon/${i}`}>{pokename(poke.name)}</a>
+                       <a href={`/pokemon/${i}`} style={linkStyle}>{pokename(poke.name)}</a>
                     </li>
                 )
             })}
