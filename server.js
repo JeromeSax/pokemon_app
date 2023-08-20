@@ -14,9 +14,10 @@ app.get('/', (req, res) => {
     res.send('Welcome to the Pokemon App!')
 })
 
-app.get('/pokemon', (req, res) => {
+app.get('/pokemon/:id', (req, res) => {
     // res.send(pokemon)
-    res.render('Index', {pokemon : pokemon})
+    res.send(req.params.id);
+    // res.render('Index', {pokemon : pokemon})
 })
 
 
