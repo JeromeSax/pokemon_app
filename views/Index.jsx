@@ -5,15 +5,23 @@ const myStyle = {
     minHeight: '100vh',
     };
 
+const pokename = (name) =>  {
+return name[0].toUpperCase() + name.substring(1);
+}
+
+// console.log(pokename("bulb"))
+
 function Index({ pokemon }) {
   return (
     <div style={myStyle}>
         <h1>See All The Pokemon!</h1>
-        {pokemon.map((poke, i) => {
-            return (
-                <li key={i}>{poke.name}</li>
-            )
-        })}
+        <ul>
+            {pokemon.map((poke, i) => {
+                return (
+                    <li key={i}>{pokename(poke.name)}</li>
+                )
+            })}
+        </ul>
     </div>
   )
 }
