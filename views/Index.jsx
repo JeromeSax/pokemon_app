@@ -18,7 +18,9 @@ function Index({ pokemon }) {
         <ul>
             {pokemon.map((poke, i) => {
                 return (
-                    <li key={i}>{pokename(poke.name)}</li>
+                    <li key={i}>
+                       <a href={`/pokemon/${i}`}>{pokename(poke.name)}</a>
+                    </li>
                 )
             })}
         </ul>
