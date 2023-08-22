@@ -8,6 +8,12 @@ app.set('views', __dirname + '/views');
 app.set('view engine', 'jsx');
 app.engine('jsx', require('express-react-views').createEngine());
 
+// MIDDLEWARE
+app.use((req, res, next) => {
+    // console.log('I run all routes!')
+    next();
+})
+
 
 
 app.get('/', (req, res) => {
@@ -30,3 +36,4 @@ app.get('/pokemon/:id', (req, res) => {
 app.listen(3000, () => {
     console.log('listening');
 })
+
