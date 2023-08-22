@@ -14,17 +14,27 @@ app.use((req, res, next) => {
     next();
 })
 
+// This allows the body of a post request
+app.use(express.urlencoded({ extended: false }))
 
-
+// Route home
 app.get('/', (req, res) => {
-    res.send('Welcome to the Pokemon App!')
+    // res.send(pokemon)
+    res.send(`<h1> Welcome to the <a href="/pokemon">Pokemon</a> App! <h1>`)
 })
 
+// Index
 app.get('/pokemon', (req, res) => {
     // res.send(pokemon)
     res.render('Index', {pokemon : pokemon})
 })
 
+// NEW pokemon Route
+app.get('/pokemon/new', (req, res) => {
+    res.render('New')
+})
+
+// Show
 app.get('/pokemon/:id', (req, res) => {
     // res.send(pokemon)
     // res.send(req.params.id);
