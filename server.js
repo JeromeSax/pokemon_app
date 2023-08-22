@@ -34,6 +34,25 @@ app.get('/pokemon/new', (req, res) => {
     res.render('New')
 })
 
+// Create = Post
+app.post('/pokemon', (req, res) => {
+
+    const newPokemon = {
+        name: req.body.name,
+        img: "http://img.pokemondb.net/artwork/" + req.body.name.toLowerCase()
+    }
+    console.log('Created Pokemon: ', req.body)
+    if(req.body.readyToFight === 'on') {
+        req.body.readyToFight = true;
+    } else {
+        req.body.readyToFight = false;
+    }
+
+    pokemon.push(newPokemon)
+    res.redirect('/pokemon') 
+
+})
+
 // Show
 app.get('/pokemon/:id', (req, res) => {
     // res.send(pokemon)
