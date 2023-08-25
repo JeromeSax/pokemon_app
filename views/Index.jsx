@@ -25,7 +25,7 @@ function Index({ pokemon }) {
             {pokemon.map((poke, i) => {
                 return (
                     <li key={i}>
-                       <a href={`/pokemon/${i}`} style={linkStyle}>{pokename(poke.name)}</a>
+                       <a href={`/pokemon/${poke.id}`} style={linkStyle}>{pokename(poke.name)}</a>
                     </li>
                 )
             })}
