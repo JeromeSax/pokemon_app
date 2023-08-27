@@ -23,7 +23,7 @@ function Shows({ pokemon }) {
         <br/>
         <br/>
         <br/>
-        <a href={`/pokemon`} style={linkStyle}>Back</a>
+        <a href='/pokemon' style={linkStyle}>Back</a>
     </div>
   )
 }

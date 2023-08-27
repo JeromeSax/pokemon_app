@@ -5,13 +5,13 @@ const pokeSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    color: {
+    img: {
         type: String,
         required: true
     },
     readyToFight: Boolean
 })
 
-const Poke = mongoose.model('poke', pokeSchema)
+const Poke = mongoose.model('Poke', pokeSchema)
 
 module.exports = Poke;

@@ -13,7 +13,7 @@ mongoose.connect(process.env.MONGO_URI, {
 });
 
 // Connecting to mongoDB 
-mongoose.connection.once('open', ()=>{
+mongoose.connection.once('open', () => {
     console.log('connected to mongoDB')
 })
 
@@ -24,7 +24,7 @@ app.engine('jsx', require('express-react-views').createEngine());
 
 // MIDDLEWARE
 app.use((req, res, next) => {
-    // console.log('I run all routes!')
+    console.log('I run all routes!')
     next();
 })
 
@@ -42,7 +42,7 @@ app.get('/', (req, res) => {
 app.get('/pokemon', async function (req, res) {
     const foundPokemon = await Poke.find({})
     res.render('Index', {
-        pokemon : foundPokemon
+        pokemon: foundPokemon
     })
 })
 
@@ -53,21 +53,20 @@ app.get('/pokemon/new', (req, res) => {
 
 // Create = Post
 app.post('/pokemon', async (req, res) => {
-
-    const newPokemon = {
-        name: req.body.name,
-        img: "http://img.pokemondb.net/artwork/" + req.body.name.toLowerCase()
-    }
-    // console.log('Created Pokemon: ', req.body)
-    if(req.body.readyToFight === 'on') {
+    if (req.body.readyToFight === 'on') {
         req.body.readyToFight = true;
     } else {
         req.body.readyToFight = false;
     }
-    const createdPokemon = await Poke.create(req.body)
-    console.log(createdPokemon)
-    pokemon.push(newPokemon)
-    res.redirect('/pokemon') 
+    const newPokemon = await Poke.create({
+        name: req.body.name,
+        img: "http://img.pokemondb.net/artwork/" + req.body.name.toLowerCase(),
+        readyToFight: req.body.readyToFight
+    })
+    // console.log('Created Pokemon: ', req.body)
+    console.log(newPokemon)
+    // pokemon.push(newPokemon)
+    res.redirect('/pokemon')
 
 })
 

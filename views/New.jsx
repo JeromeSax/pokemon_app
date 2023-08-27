@@ -14,7 +14,7 @@ function New() {
         <h1>New Pokemon Page</h1>
         <form action="/pokemon" method="POST">
            Name: <input type="text" name='name'/> <br/>
-           Element: <input type="text" name='color'/> <br/>
+           {/* Element: <input type="text" name='color'/> <br/> */}
            Ready To Fight: <input type="checkbox" name='readyToFight'/> <br/>
            <input type="submit" value="create pokemon"/>
         </form>
